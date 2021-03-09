@@ -3,12 +3,14 @@
 #include <LiquidCrystal.h>
 #include <MPU6050_tockn.h>
 #include <Wire.h>
+
 MPU6050 mpu6050(Wire);
 const int alarmPin = 5;
 const int relayPin = 10;
 int Xacc, Yacc, Zacc, threshold = 0, thresholdSET = 20;
 long debouncing_time = 35; //Debouncing Time in Milliseconds
 volatile unsigned long last_micros;
+
 LiquidCrystal lcd(12, 11, 9, 8, 7, 6);
 struct sensorValue
 {
@@ -85,61 +87,59 @@ void loop() {
    lcd.print(Xacc);
 
 if((Xacc >= (acceleration.X + (threshold + 20))) || (Xacc <= (acceleration.X - (threshold + 20)))||(Yacc >= (acceleration.Y + (threshold + 20))) || (Yacc <= (acceleration.Y - (threshold + 20)))||(Zacc >= (acceleration.Z + (threshold + 20))) || (Zacc <= (acceleration.Z - (threshold + 20)))) {
-  
-     
     digitalWrite(alarmPin, HIGH);
     digitalWrite(relayPin, LOW);
-      delay(75);
+    delay(75);
     digitalWrite(alarmPin, LOW);
     digitalWrite(relayPin, HIGH);
-      delay(50);
-         digitalWrite(alarmPin, HIGH);
-         digitalWrite(relayPin, LOW);
-      delay(75);
-    digitalWrite(alarmPin, LOW);
-        digitalWrite(relayPin, LOW);
-      delay(50);
-         digitalWrite(alarmPin, HIGH);
-         digitalWrite(relayPin, LOW);
-      delay(75);
-    digitalWrite(alarmPin, LOW);
-        digitalWrite(relayPin, HIGH);
-      delay(100);
-        digitalWrite(alarmPin, HIGH);
-        digitalWrite(relayPin, LOW);
-          delay(300);
-    digitalWrite(alarmPin, LOW);
-        digitalWrite(relayPin, HIGH);
-      delay(100);
-        digitalWrite(alarmPin, HIGH);
-        digitalWrite(relayPin, LOW);
-          delay(300);
-    digitalWrite(alarmPin, LOW);  
-           digitalWrite(relayPin, HIGH); 
-      delay(100);
-              digitalWrite(alarmPin, HIGH);
-              digitalWrite(relayPin, LOW);
-          delay(300);
-              digitalWrite(relayPin, LOW);
-                     digitalWrite(relayPin, HIGH);
-      delay(75);
+    delay(50);
     digitalWrite(alarmPin, HIGH);
     digitalWrite(relayPin, LOW);
-      delay(75);
+    delay(75);
     digitalWrite(alarmPin, LOW);
-        digitalWrite(relayPin, HIGH);
-      delay(50);
-         digitalWrite(alarmPin, HIGH);
-         digitalWrite(relayPin, LOW);
-      delay(75);
+    digitalWrite(relayPin, LOW);
+    delay(50);
+    digitalWrite(alarmPin, HIGH);
+    digitalWrite(relayPin, LOW);
+	delay(75);
     digitalWrite(alarmPin, LOW);
-        digitalWrite(relayPin, HIGH);
-      delay(50);
-         digitalWrite(alarmPin, HIGH);
-         digitalWrite(relayPin, LOW);
-      delay(75);
-           digitalWrite(alarmPin, LOW);
-             digitalWrite(relayPin, HIGH);
+    digitalWrite(relayPin, HIGH);
+    delay(100);
+    digitalWrite(alarmPin, HIGH);
+    digitalWrite(relayPin, LOW);
+    delay(300);
+    digitalWrite(alarmPin, LOW);
+    digitalWrite(relayPin, HIGH);
+    delay(100);
+    digitalWrite(alarmPin, HIGH);
+    digitalWrite(relayPin, LOW);
+    delay(300);
+    digitalWrite(alarmPin, LOW);  
+    digitalWrite(relayPin, HIGH); 
+    delay(100);
+    digitalWrite(alarmPin, HIGH);
+    digitalWrite(relayPin, LOW);
+    delay(300);
+    digitalWrite(relayPin, LOW);
+    digitalWrite(relayPin, HIGH);
+    delay(75);
+    digitalWrite(alarmPin, HIGH);
+    digitalWrite(relayPin, LOW);
+    delay(75);
+    digitalWrite(alarmPin, LOW);
+    digitalWrite(relayPin, HIGH);
+    delay(50);
+    digitalWrite(alarmPin, HIGH);
+    digitalWrite(relayPin, LOW);
+    delay(75);
+    digitalWrite(alarmPin, LOW);
+    digitalWrite(relayPin, HIGH);
+    delay(50);
+    digitalWrite(alarmPin, HIGH);
+    digitalWrite(relayPin, LOW);
+    delay(75);
+    digitalWrite(alarmPin, LOW);
+    digitalWrite(relayPin, HIGH);
       delay(50);
          digitalWrite(alarmPin, HIGH);
          digitalWrite(relayPin, LOW);
@@ -298,9 +298,5 @@ else if((Xacc >= (acceleration.X + (threshold + 5))) || (Xacc <= (acceleration.X
 
     lcd.clear();   
   }  
-
-
-
-
-  
+ 
 }
