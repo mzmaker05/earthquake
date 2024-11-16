@@ -2,6 +2,7 @@
 
 Arduino-based earthquake alarm system designed to continuously monitor the surrounding environment to detect earthquakes and give you enough time to safety.
 The earthquake monitoring sensitivity can be increased or lowered with the use of two buttons and has an LCD Screen to display the sensitivity number, status and alarm type. 
+![File system](EARTRQUAKE.png)
 
 It was originally designed as dangerous structure monitoring system for a group of firefighters, more on the readme files. 
 Homepage: http://earth-quake.cc
